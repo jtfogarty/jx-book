@@ -1,0 +1,21 @@
+INFO Step 1 is to run gcloud init and login
+
+PROJECT=jx-01-226119
+TOKEN=5a83f386075658a4b1c1dadcf8966b708d8fd3bc
+
+jx create cluster gke \
+--cluster-name jx-rox-th \
+--skip-login \
+--project-id $PROJECT \
+--region us-central1 \
+--machine-type n1-standard-1 \
+--min-num-nodes 1 \
+--max-num-nodes 2 \
+--no-tiller \
+--default-admin-password jx-rox-19 \
+--default-environment-prefix jx-rox-th
+
+ADDR=$(kubectl --namespace jx-staging get ingress jx-go -o jsonpath="{.spec.rules[0].host}")
+curl "http://$ADDR"
+
+gcloud container clusters delete jx-rox-th --region us-central1 --quiet

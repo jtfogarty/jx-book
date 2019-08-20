@@ -1,0 +1,38 @@
+INFO Step 1 is to run gcloud init and login
+
+PROJECT=jx-01-226119
+TOKEN=5a83f386075658a4b1c1dadcf8966b708d8fd3bc
+CLUSTER_NAME=jx-rox-cd
+ADMIN_PW=jx-rox-cd
+GIT_USER=jtfogarty
+
+jx create cluster gke \
+--cluster-name ${CLUSTER_NAME} \
+--default-admin-password ${ADMIN_PW} \
+--git-api-token ${TOKEN} \
+--git-provider-url github.com \
+--git-username ${GIT_USER} \
+--machine-type n1-standard-2 \
+--max-num-nodes 5 \
+--min-num-nodes 1 \
+--ng=true \
+--project-id ${PROJECT} \
+--skip-login \
+--verbose \
+--zone us-central1-c
+
+
+ADDR=$(kubectl --namespace jx-staging get ingress jx-go -o jsonpath="{.spec.rules[0].host}")
+curl "http://$ADDR"
+
+gcloud container clusters delete ${CLUSTER_NAME} --region us-central1-c --quiet
+
+
+
+ERROR: Failed to install ingress chart: Failed to run helm template --name jxing 
+--namespace kube-system /tmp/helm-template-workdir-231321019/jxing/chartFiles/nginx-ingress 
+--output-dir /tmp/helm-template-workdir-231321019/jxing/output --debug --set rbac.create=true 
+--set controller.extraArgs.publish-service=kube-system/jxing-nginx-ingress-controller 
+--values /tmp/values.yaml490608832: 
+failed to run 'helm template --name jxing --namespace kube-system /tmp/helm-template-workdir-231321019/jxing/chartFiles/nginx-ingress --output-dir /tmp/helm-template-workdir-231321019/jxing/output --debug --set rbac.create=true --set controller.extraArgs.publish-service=kube-system/jxing-nginx-ingress-controller --values /tmp/values.yaml490608832' 
+co

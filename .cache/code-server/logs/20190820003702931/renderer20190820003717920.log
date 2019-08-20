@@ -1,0 +1,10 @@
+[2019-08-20 00:37:19.277] [renderer20190820003717920] [error] Cannot read property 'clientWidth' of undefined: TypeError: Cannot read property 'clientWidth' of undefined
+    at t.adjustTitleMarginToCenter (https://localhost:8443/ide.main.5b173b.js:67:847227)
+    at e._runner (https://localhost:8443/ide.main.5b173b.js:67:848126)
+    at e.execute (https://localhost:8443/ide.main.5b173b.js:16:22529)
+    at x (https://localhost:8443/ide.main.5b173b.js:16:22725)
+[2019-08-20 00:37:21.979] [renderer20190820003717920] [error] Cannot read property 'clientWidth' of undefined: TypeError: Cannot read property 'clientWidth' of undefined
+    at t.adjustTitleMarginToCenter (https://localhost:8443/ide.main.5b173b.js:67:847227)
+    at e._runner (https://localhost:8443/ide.main.5b173b.js:67:848126)
+    at e.execute (https://localhost:8443/ide.main.5b173b.js:16:22529)
+    at x (https://localhost:8443/ide.main.5b173b.js:16:22725)
