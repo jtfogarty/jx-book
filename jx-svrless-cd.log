@@ -1,7 +1,7 @@
 INFO Step 1 is to run gcloud init and login
 
 PROJECT=jx-01-226119
-TOKEN=5a83f386075658a4b1c1dadcf8966b708d8fd3bc
+TOKEN=
 CLUSTER_NAME=jx-rox-cd
 ADMIN_PW=jx-rox-cd
 GIT_USER=jtfogarty
